@@ -1,0 +1,212 @@
+Prac6
+🔹 Step 1: Create Dataset in Excel
+Steps:
+Open Microsoft Excel
+Create a new worksheet
+Enter the following column headings in Row 1:
+A1: Name
+B1: Department
+C1: Designation
+D1: City
+Enter employee data below headings (Row 2 onwards)
+Ensure:
+No empty rows/columns
+Data is properly aligned
+
+🔹 Step 2: Select Data Range
+Steps:
+Click on any cell inside the dataset
+Press Ctrl + A (or manually select full table)
+Make sure entire dataset is highlighted
+
+🔹 Step 3: Create Pivot Table
+Steps:
+Go to Insert Tab
+Click on Pivot Table
+A dialog box appears:
+Table/Range → already selected
+Choose New Worksheet
+Click OK
+👉 A blank Pivot Table and Pivot Fields pane will appear
+
+🔹 Step 4: Arrange Pivot Fields
+Steps:
+In Pivot Fields panel:
+Drag Department → Rows area
+Drag Name → Values area
+By default:
+It shows Count of Name (employees)
+Optional:
+Drag City → Columns area (to compare cities)
+Drag Designation → Filters (to filter data)
+
+🔹 Step 5: Perform Calculations
+Steps:
+In Values section:
+Click drop-down → Value Field Settings
+Select required function:
+Count → Number of employees
+Sum → Total values
+Average → Average
+Click OK
+🔹 Step 6: Format Pivot Table
+Steps:
+Click anywhere inside Pivot Table
+Go to Design Tab
+Apply:
+Table styles
+Banded rows
+Adjust column widths if needed
+
+🔹 Step 7: Create Pivot Chart
+Steps:
+Click inside Pivot Table
+Go to Insert Tab
+Click Pivot Chart
+Select:
+Chart Type → Column Chart
+Click OK
+Result:
+Chart shows:
+X-axis → Department
+Y-axis → Number of Employees
+
+Step 8: Import Data from Data Warehouse (SSMS)
+Steps:
+Open SQL Server Management Studio (SSMS)
+Connect to database
+Click New Query
+Enter SQL query:
+SELECT * FROM Employee;
+Click Execute
+
+🔹 Step 9: Export Data as CSV
+Steps:
+In Result panel:
+Right-click → Save Results As
+Choose:
+File type → CSV
+Save file to your system
+
+🔹 Step 10: Open CSV in Excel
+Steps:
+Go to saved location
+Double-click CSV file
+It will open in Excel
+Use this data to:
+Create Pivot Table
+Perform analysis
+
+Prac7
+📊 Step 1: Create Data Table
+🔸 What you did:
+Created a table with:
+Items (Pen, Pencil, Ruler, Book, Protractor)
+Cost values
+Example:
+item	  cost
+Pen         10
+Pencil       5
+Ruler       20
+Book        70
+Protractor  15
+total	
+   
+📐 Step 2: Apply Total Formula
+B7=SUM(B2:B6)
+🔸 Explanation:
+SUM(B2:B6) calculates total cost
+Result = 120
+
+⚙️ Step 3: Open Scenario Manager
+🔸 Steps:
+Select the total cell(B2-B6)
+Go to Data tab
+Click What-If Analysis
+Select Scenario Manager
+
+🔹 Step 4: Create Scenarios
+✅ Scenario 1: Same (Original Values)
+Steps:
+Click Add
+Name: Same
+Changing cells: B2:B6
+Click OK
+Keep original values → OK
+
+✅ Scenario 2: Increment by 2
+Steps:
+Click Add
+Name: Increment by 2
+Changing cells: B2:B6
+Click OK
+Add +2 to each value
+10 → 12
+5  → 7
+20 → 22
+70 → 72
+15 → 17
+
+✅ Scenario 3: Increment by 4
+Steps:
+Add scenario
+Name: Increment by 4
+Add +4 to each value
+🔸 New Values:
+10 → 14
+5  → 9
+20 → 24
+70 → 74
+15 → 19
+
+✅ Scenario 4: Decrement by 1
+Steps:
+Add scenario
+Name: Decrement by 1
+Subtract 1 from each value
+🔸 New Values:
+10 → 9
+5  → 4
+20 → 19
+70 → 69
+15 → 14
+
+📑 Step 5: Generate Scenario Summary
+🔸 Steps:
+Open Scenario Manager
+Click Summary
+Select:
+Scenario Summary
+Result cell → B7 (Total)
+Click OK
+
+Prac 8
+Open RStudio
+rainfall = c(799,1174.8,865.1,1134,635.4,918.5,685.5,998.6,784.2,985,882,810)
+rainfall.timeseries=ts(rainfall,start = c(2012,1),frequency = 12)
+print(rainfall.timeseries)
+jpeg(file="rainfall.jpeg")
+plot(rainfall.timeseries)
+dev.off()
+
+Prac 9 
+Open RStudio
+newiris = iris
+print(newiris)
+newiris$Species = NULL
+kc = kmeans(newiris, 3)
+table(iris$Species, kc$cluster)
+plot(newiris[c("Sepal.Length", "Sepal.Width")])
+points(kc$centers[c("Sepal.Length", "Sepal.Width")], col = 1:3, pch = 8, cex = 2)
+
+Prac 10
+Open RStudio
+x <- c(152,174,138,186,128,136,179,163,152,131)
+y <- c(63,81,56,91,47,57,76,72,62,48)
+relation <- lm(y~x)
+a <- data.frame(x=170)
+result <- predict(relation,a)
+print(result)
+png(file="linerregression.png")
+plot(y,x,col="red",main="height & weight Regression",abline(lm(x~y)),cex=1.3,pch=16, xlab="weight in kg", ylab="Height in cm")
+dev.off()
